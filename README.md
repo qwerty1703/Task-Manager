@@ -14,3 +14,23 @@ Designed to streamline project management and enhance collaboration, our platfor
 ● Spotify API: Vibe and complete your tasks on our page.
 
 ● Calendar: Mark your deadlines and important events so that you don't miss out on any tasks.
+
+
+**Software requirements:**
+
+Frontend
+
+● HTML - Used to structure the web pages and define their layout.
+
+● CSS - Employed for styling the HTML elements and enhancing the visual appeal of the application.
+
+● EJS(Embedded JavaScript) - Integrated with Node.js to dynamically generate HTML markup with plain JavaScript.
+
+
+Backend
+
+● Node.js - Utilized as the server-side runtime environment to execute JavaScript code
+
+● Express.js - A web application framework for Node.js used to handle routing and middleware tasks effectively.
+
+● SQL Database(MySQL) - Integrated with the backend to store and manage task-related data efficiently.
