@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Task Dashboard</title>
+    <link rel="stylesheet"
+        type="text/css"
+        href="/css/styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- container start -->
+    <div class="container">
+        <!-- left start -->
+        <div class="left">
+            <!-- header start -->
+            <header>
+                <!-- logo start -->
+                <div class="logo">
+                    <h2>WP Project</h2>
+                    <div class="close">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </div>
+                </div>
+                <!-- nav start -->
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="material-symbols-outlined">
+                                    dashboard
+                                </span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="material-symbols-outlined">
+                                    check_box
+                                </span>
+                                <span class="title">Summary</span>
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a href="#">
+                                <span class="material-symbols-outlined">
+                                    task
+                                </span>
+                                <span class="title">My Task</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="material-symbols-outlined">
+                                    chat_bubble
+                                </span>
+                                <span class="title">Message (future msg features)</span>
+                            </a>
+                        </li>
+                       
+                        
+                    </ul>
+                </nav>
+                <!-- nav end -->
+            </header>
+            <!-- header end -->
+            
+        </div>
+        <!-- left end -->
+        <!-- right start -->
+        <div class="right">
+            <!-- top start -->
+            <div class="top">
+                <!-- searchBx start -->
+                <div class="searchBx">
+                    <h2>Welcome to ur Task Board</h2>
+                    <div class="inputBx">
+                        <span class="material-symbols-outlined searchOpen">search</span>
+                        <input id="searchInput" type="text" placeholder="Search...">
+                        <span class="material-symbols-outlined searchClose">close</span>
+                    </div>
+                </div>
+                <!-- searchBx end -->
+                <!-- user start -->
+                <div class="user">
+                    <span class="material-symbols-outlined">
+                        
+                            <button id="notifs" type="submit" class="material-symbols-outlined">
+                                notifications
+                            </button>
+                            <script>
+                                var notifbutton = document.getElementById("notifs");
+                                notifbutton.addEventListener('click',function()
+                                {
+                                    alert("NOTIFICATIONS : CURRENTLY 0");
+                                })
+                            </script>
+                        
+                    </span>
+                    <div class="userImg">
+                        <img src="./images/cute.jpg" alt="user">
+                    </div>
+                    <h2>Um hello guys<br><span>Student</span></h2>
+                    <div class="arrow">
+                        <span class="material-symbols-outlined" onclick="notif()">
+                            expand_more
+                        </span>
+                        <script>
+                            function notif()
+                            {
+                                alert("functionality of profiles to be implemented soon :D ");
+                            }
+                        </script>
+                    </div>
+                    <div class="toggle">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                        <span class="material-symbols-outlined">
+                            
+                                close
+                               
+                        </span>
+                        
+                        <script>
+                            function dropwdownbut()
+                            {
+                                alert("dropwdown pressed");
+                            }
+                        </script>
+                        
+                    </div>
+                </div>
+                <!-- user end -->
+            </div>
+            <!-- top end -->
+            <!-- main start -->
+            <main>
+                <!-- projectCard start -->
+                <div class="projectCard projectCard1">
+                    <!-- projectTop start -->
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYoYGBbGKurt?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <!-- due end -->
+                </div>
+                <!-- projectCard end -->
+                <!-- projectCard2 start -->
+                <div class="projectCard projectCard2">
+                    <div class="projectTop">
+                        <h2>Summary</h2>
+                    </div>
+                    <br>
+                    <% variable2.forEach(list => { %>
+                        <p class="progress-bar-list-title"><%= list.listname %></p>
+                        <div class="progress-bar">
+                            <div class="progress-done" style="--progress-width: <%= (list.tasks_done / list.total_tasks) * 100 %>%;">
+                                <b>&ensp; <%= list.tasks_done %>/<%= list.total_tasks %></b>
+                            </div>
+                        </div>
+                        
+                    <% }); %>
+                </div>
+                
+                <!-- projectCard2 end -->
+                <!-- myTasks start -->
+                <div class="myTasks">
+                    <!-- tasksHead start -->
+                    <div class="tasksHead">
+                        <h2>My Tasks</h2>
+                        <div class="tasksSort" id="sortIcon">
+                            <form action="http://localhost:3000/sort" method="post">
+                                <!-- Google icon as a button -->
+                                <button id="sorttaskbutton" type="submit" class="material-symbols-outlined">
+                                    autorenew
+                                </button>
+                            </form>
+                        </div>
+                        <div class="tasksByList" id="filterIcon">
+                            <form action="http://localhost:3000/filter" method="post">
+                                <!-- Google icon as a button -->
+                                <button id="filtertaskbutton" type="submit" class="material-symbols-outlined">
+                                    filter_list
+                                </button>
+                            </form>
+                        </div>
+                        <div class="tasksSearch">
+                            <span class="material-symbols-outlined">
+                                search
+                            </span>
+                        </div>
+                        <div class="tasksAdd">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <!-- tasksHead end -->
+                    <!-- tasks start -->
+                    <div class="tasks">
+                        <ul>
+                            
+                            <span id="searchfortask" style="display: none;">
+                                <span class="tasksIconName">
+                                    <form class="formsearchtasks" action="http://localhost:3000/search" method="post">
+                                        <input type="text" placeholder="      Enter task" required="True" name= "taskToSearch" id = "taskToSearch">
+                                        <span class="search-task">
+                                            <button type="submit"  required="True" value="submit" name="submit" id="searchtaskbutton">Submit</button>
+                                            </span>
+                                    </form>
+                                </span>
+                            </span>
+                        
+                            
+                            <span id="taskListItem" style="display: none;">
+                                <span class="tasksIconName">
+                                    <form class="formtoaddtasks" action="http://localhost:3000/insert" method="post">
+                                        <input type="text" placeholder="   Enter task" required="True" name= "taskList" id = "taskList">
+                                        <input type="text" placeholder="   Enter list" required="True" name= "listofLists" id = "listofLists">
+                                        <input type="date"  placeholder="Date" required="True" name= "dueDate" id = "dueDate">
+                                        <span class="add-task-list">
+                                            <button type="submit"  required="True" value="submit" name="submit" id="newtaskbutton">Submit</button>
+                                            </span>
+                                    </form>
+                                </span>
+                                
+                            </span>
+                            
+                            <script>
+                                const addButton = document.querySelector('.tasksAdd span.material-symbols-outlined');
+                                const taskListItem = document.getElementById('taskListItem');
+                                
+
+                                // Add event listener to the add button
+                                addButton.addEventListener('click', function() {
+                                    // Show the list item when the add button is clicked
+                                    if (taskListItem.style.display != 'block')
+                                    taskListItem.style.display = 'block';
+                                    else
+                                    taskListItem.style.display = 'none';
+                                });
+                            </script>
+                            <script>
+                                const searchButton = document.querySelector('.tasksSearch span.material-symbols-outlined');
+                                const searchfortask = document.getElementById('searchfortask');
+                                
+
+                                // Add event listener to the add button
+                                searchButton.addEventListener('click', function() {
+                                    // Show the list item when the add button is clicked
+                                    if (searchfortask.style.display != 'block')
+                                    searchfortask.style.display = 'block';
+                                    else
+                                    searchfortask.style.display = 'none';
+                                });
+                            </script>
+                                    <% for (let j=0; j < variable.length; j++) { %>
+                                      
+                                      <li>
+                                        
+                                        <span class="tasksIconName">
+                                            <span class="tasksIcon">
+                                                <span class="statusbutton">
+
+                                        
+                                                
+                                                <% if (variable[j].status === 'done') { %>
+                                                    <span class="done">
+                                                        <form action="http://localhost:3000/status" method="post" >
+                                                            <!-- Google icon as a button -->
+                                                            <input type="hidden" name="taskstatusID" value="<%= variable[j].task_id %>">
+                                                            <button id="<%= variable[j].task_id %>" type="submit" class="material-symbols-outlined statusbutton">
+                                                                check
+                                                            </button>
+                                                        </form>
+                                                    </span>
+                                                <% } else { %>
+                                                    <span class="notDone">
+                                                        <form action="http://localhost:3000/status" method="post" >
+                                                            <!-- Google icon as a button -->
+                                                            <input type="hidden" name="taskstatusID" value="<%= variable[j].task_id %>">
+                                                            <button id="<%= variable[j].task_id %>" type="submit" class="material-symbols-outlined statusbutton">
+                                                                check
+                                                            </button>
+                                                        </form>
+                                                    </span>
+                                                <% } %>
+                                                </span>
+
+                                                
+                                            </span>
+                                            
+                                            <span class="tasksName">
+                                                <%= variable[j].tasks%>
+                                                &ensp;&ensp;&ensp;
+                                                <span class="highlightedlistname">
+                                                    <%= variable[j].listname%>
+                                                </span>
+                                                &ensp;&ensp;&ensp;
+                                                <% if (variable[j].late === 'Late') { %>
+                                                    <span class="latetask">
+                                                        <%= variable[j].late %>
+                                                    </span>
+                                                <% } else { %>
+                                                    <span class="">
+                                                        <%= variable[j].late %>
+                                                    </span>
+                                                <% } %>
+                                                
+                                            </span>
+                                            
+
+                                </span>
+                                <span class = "remove">
+                                    <form action="http://localhost:3000/remove" method="post">
+                                        <input type="hidden" name="taskID" value="<%= variable[j].task_id %>">
+                                        <button id="<%= variable[j].task_id %>" type="submit"  class="material-symbols-outlined removetaskbutton"  >
+                                            remove 
+                                        </button>
+                                    </form>
+                                    
+                                </span>
+                                <span class="tasksStar full">
+                                    <span class="material-symbols-outlined">
+                                        star
+                                    </span>
+                                </span>
+                                        
+                                    </li><% } %>
+                                    
+                        </ul>
+                    </div>
+                    <!-- tasks ens -->
+                </div>
+                <!-- myTasks end -->
+                <!-- timeline start -->
+                <div class="timeline">
+                    <!-- timelineHead start -->
+                    <div class="timelineHead">
+                        <h2>Quote of the Day</h2>
+                        
+                    </div>
+                    <!-- timelineHead end -->
+                    <!-- timelineVideos start -->
+                    <div class="timelineVideos">
+                        
+                                <span class="videoText">
+                                
+                                    <b></b><p class="text" id="quoterandom">
+                                    
+                                    </p>
+                                </span>
+                            
+                            
+                        
+                    </div>
+                    <!-- timelineVideos end -->
+                </div>
+                <!-- timeline end -->
+                <!-- calendar start -->
+                <div class="calendar">
+                    <!-- calendarHead start -->
+                    <div class="calendarHead">
+                        
+                            <h2 class="current_date"></h2>
+                        <div class="calendarIcon">
+                            <span id = "prev" class="material-symbols-outlined">
+                                chevron_left
+                            </span>
+                            <span id = "next" class="material-symbols-outlined">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
+                    <!-- calendarHead end -->
+                    <!-- calendarData start -->
+                    <div class="calendarData">
+                        <ul class="weeks">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
+                        </ul>
+                        <ul class="days">
+                        </ul>
+                    </div>
+                    <!-- calendarData end -->
+                </div>
+                <!-- calendar end -->
+                <!-- aesthetic start -->
+                <div class="aesthetic">
+                    <!-- aestheticHead start -->
+                    <div class="aestheticHead">
+                        <h2>aesthetic</h2>
+                    </div>
+                    <!-- aestheticHead end -->
+                    <!-- aestheticUser start -->
+                    <div class="aestheticUser">
+                        
+                            <img src="./images/cute.jpg" id="aesthetic_img">
+                        
+                        
+                    </div>
+                    
+                    <!-- aestheticUser end -->
+                </div>
+                <!-- aesthetic end -->
+            </main>
+            <!-- main end -->
+        </div>
+        <!-- right end -->
+    </div>
+    <!-- container end -->
+    <script>
+
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keydown', function(event) {
+        
+            if (event.keyCode === 13) {
+              
+                const inputValue = searchInput.value;
+                
+                alert("search successfullll for :  "+inputValue);
+                event.preventDefault();
+            }
+        });
+
+const daysTag = document.querySelector(".days"),
+currentDate = document.querySelector(".current_date"),
+prevNextIcon = document.querySelectorAll(".calendarIcon span");
+// getting new date, current year and month
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
+// storing full name of all months in array
+const months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+    let liTag = "";
+    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+        // adding active class to li if the current day, month, and year matched
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+                     && currYear === new Date().getFullYear() ? "active" : "";
+                     liTag += `<li class="${isToday} clickable">${i}</li>`;
+    }
+    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+    
+    currentDate.innerText =`${months[currMonth]}${currYear}`; // passing current mon and yr as currentDate text
+    daysTag.innerHTML = liTag;
+}
+renderCalendar();
+prevNextIcon.forEach(icon => { // getting prev and next icons
+    icon.addEventListener("click", () => { // adding click event on both icons
+        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+            // creating a new date of current year & month and pass it as date value
+            date = new Date(currYear, currMonth, new Date().getDate());
+            currYear = date.getFullYear(); // updating current year with new date year
+            currMonth = date.getMonth(); // updating current month with new date month
+        } else {
+            date = new Date(); // pass the current date as date value
+        }
+        renderCalendar(); // calling renderCalendar function
+    });
+});
+// Event listener to toggle red color on click
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("clickable")) {
+      // Toggle 'red' class on the clicked item
+      event.target.classList.toggle("red");
+    }
+  });
+/// Get all task items
+const taskItems = document.querySelectorAll('.tasks li');
+
+// Loop through each task item
+taskItems.forEach(taskItem => {
+    
+
+
+    // Add event listener to toggle 'half' and 'full' classes on star click
+    const starIcon = taskItem.querySelector('.tasksStar');
+    starIcon.addEventListener('click', function(event) {
+        
+        starIcon.classList.toggle('half');
+        starIcon.classList.toggle('full');
+    });
+});
+// Select the add sign element
+// Select the add sign element
+// Select the "add" sign element
+
+   
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Array of different messages
+    const messages = [
+    "We cannot solve problems with the kind of thinking we employed when we came up with them.", "Learn as if you will live forever, live like you will die tomorrow.", "Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.", "When you give joy to other people, you get more joy in return. You should give a good thought to the happiness that you can give out.", "When you change your thoughts, remember to also change your world.", "It is only when we take chances that our lives improve. The initial and the most difficult risk we need to take is to become honest.", "Nature has given us all the pieces required to achieve exceptional wellness and health, but has left it to us to put these pieces together.", "Success is not final; failure is not fatal: It is the courage to continue that counts.", "It is better to fail in originality than to succeed in imitation.", "The road to success and the road to failure are almost exactly the same.", "Success usually comes to those who are too busy to be looking for it.", "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.", "There are three ways to ultimate success: The first way is to be kind. The second way is to be kind. The third way is to be kind.", "Success is peace of mind, which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable.", "I never dreamed about success. I worked for it.", "Success is getting what you want; happiness is wanting what you get.", "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.", "Don’t let yesterday take up too much of today.", "You learn more from failure than from success. Don’t let it stop you. Failure builds character.", "If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.", "Experience is a hard teacher because she gives the test first, the lesson afterward.", "To know how much there is to know is the beginning of learning to live.", "Goal setting is the secret to a compelling future.", "Concentrate all your thoughts upon the work in hand. The sun’s rays do not burn until brought to a focus.", "Either you run the day or the day runs you.", "I’m a great believer in luck, and I find the harder I work, the more I have of it.", "When we strive to become better than we are, everything around us becomes better too.", "Opportunity is missed by most people because it is dressed in overalls and looks like work.", "Setting goals is the first step in turning the invisible into the visible.", "We don’t just sit around and wait for other people. We just make, and we do.", "Think like a queen. A queen is not afraid to fail. Failure is another stepping stone to greatness.", "The strongest actions for a woman is to love herself, be herself and shine amongst those who never believed she could.", "Whenever you see a successful woman, look out for three men who are going out of their way to try to block her.", "Some women choose to follow men, and some choose to follow their dreams. If you’re wondering which way to go, remember that your career will never wake up and tell you that it doesn’t love you anymore.", "The thing women have yet to learn is nobody gives you power. You just take it.", "A witty woman is a treasure; a witty beauty is a power.", "When a woman becomes her own best friend, life is easier.", "If you want something said, ask a man; if you want something done, ask a woman.", "It took me quite a long time to develop a voice, and now that I have it, I am not going to be silent.", "Women must learn to play the game as men do.", "I swear, by my life and my love of it, that I will never live for the sake of another man, nor ask another man to live for mine.", "He who conquers himself is the mightiest warrior.",
+    "I am not a product of my circumstances. I am a product of my decisions.", "It’s not what happens to you, but how you react to it that matters.", "The only way to do great work is to love what you do.", "Do not wait to strike till the iron is hot, but make it hot by striking.", "The only place where success comes before work is in the dictionary.", "The best revenge is massive success.", "Do one thing every day that scares you.", "Opportunities don't happen. You create them.", "The difference between ordinary and extraordinary is that little extra.", "Your time is limited, don't waste it living someone else's life.", "Nothing will work unless you do.", "You miss 100% of the shots you don’t take.", "Success is not how high you have climbed, but how you make a positive difference to the world.", "The only person you are destined to become is the person you decide to be.", "Believe you can and you're halfway there.", "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work.", "Innovation distinguishes between a leader and a follower.", "If you can dream it, you can do it.", "Don’t be afraid to give up the good to go for the great.", "I find that the harder I work, the more luck I seem to have.", "Success is not just about making money. It's about making a difference.", "You don’t have to be great to start, but you have to start to be great.", "Don’t let the fear of losing be greater than the excitement of winning.", "Successful people do what unsuccessful people are not willing to do. Don’t wish it were easier; wish you were better.", "The only limit to our realization of tomorrow will be our doubts of today.", "What seems to us as bitter trials are often blessings in disguise.", "The distance between insanity and genius is measured only by success.", "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.", "I have not failed. I’ve just found 10,000 ways that won’t work.", "The only person you should try to be better than is the person you were yesterday.", "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.", "If you want to achieve greatness stop asking for permission.", "Success is not in what you have, but who you are.", "The future belongs to those who believe in the beauty of their dreams.", "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.", "You are never too old to set another goal or to dream a new dream.", "The road to success and the road to failure are almost exactly the same.", "The only thing that stands between you and your dream is the will to try and the belief that it is actually possible.", "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.", "Success is walking from failure to failure with no loss of enthusiasm.", "Don’t watch the clock; do what it does. Keep going."        
+    ];
+
+    // Get a random message from the array
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+    // Display the message in the HTML
+    const quoteRandomDiv = document.getElementById('quoterandom');
+    quoteRandomDiv.textContent = randomMessage;
+});
+
+
+    </script>
+    
+</body>
+
+</html>

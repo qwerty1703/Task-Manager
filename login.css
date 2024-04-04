@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Dubai;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('download.jpeg');
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-color: linear-gradient(#f0c1c1, #d8dbfe);
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #f4dbfb;
+}
+::-webkit-scrollbar-thumb{
+    background: #f4dbfb;
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+
+.full {
+    font-variation-settings:
+        'FILL'1,
+        'wght'400,
+        'GRAD'0,
+        'opsz'48
+}
+
+/* container start */
+.container {
+    position: relative;
+    width: 95%;
+    height: 95vh;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 5px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1),
+        0 0 10px rgba(0, 0, 0, .2),
+        0 0 15px rgba(0, 0, 0, .2);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.login
+{
+    position: relative;
+    width: 30%;
+    height: 30%;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 5px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1),
+        0 0 10px rgba(0, 0, 0, .2),
+        0 0 15px rgba(0, 0, 0, .2);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    display: flex;
+    
+    overflow: hidden;
+}
+.welcome h2
+{
+    color: #c6536f;
+}
+.loginform input[type="text"] {
+    width: 200px;
+    flex: 1; /* Allow the input field to grow and fill available space */
+    margin-right: 10px; /* Add some spacing between input field and button */
+    border-radius: 20px;
+    border-color:  #f18da6;;
+    background: #faeaea;
+    padding-left: 15px;
+}
+.loginform input[type="password"] {
+    width: 200px;
+    flex: 1; /* Allow the input field to grow and fill available space */
+    margin-right: 10px; /* Add some spacing between input field and button */
+    border-radius: 20px;
+    border-color:  #f18da6;;
+    background: #faeaea;
+    padding-left: 15px;
+}
+#loginbutton
+{
+    width: 100px;
+    flex: 1; /* Allow the input field to grow and fill available space */
+    margin-right: 10px; /* Add some spacing between input field and button */
+    border-radius: 20px;
+    border-color:  #f18da6;;
+    background: #faeaea;
+    padding-left: 15px;
+    justify-content: center;
+    align-items: center;
+}
